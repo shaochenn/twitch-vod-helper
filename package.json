@@ -1,0 +1,30 @@
+{
+  "name": "twitch-vod-helper",
+  "version": "1.0.0",
+  "description": "A lightweight Chrome extension to customize seek/skip intervals on Twitch VODs.",
+  "main": "content.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaochenn/twitch-vod-helper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/shaochenn/twitch-vod-helper/issues"
+  },
+  "homepage": "https://github.com/shaochenn/twitch-vod-helper#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-n": "^17.24.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "globals": "^17.5.0"
+  }
+}

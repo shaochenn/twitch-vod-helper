@@ -1,0 +1,13 @@
+# 依賴套件
+node_modules/
+
+# 編輯器私人物料
+.vscode/
+.DS_Store
+
+# 日誌檔案
+npm-debug.log*
+eslint.config.mjs.bak
+
+# 如果你有用 build 工具產生的資料夾
+dist/
