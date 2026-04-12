@@ -22,22 +22,21 @@ document.addEventListener('keydown', (event) => {
     return
   }
 
-  // --- 2. 排除音量控制項 (Twitch 專屬優化) ---
-  // 檢查焦點是否在音量滑桿或包含音量控制的容器上
-  // aria-label="音量" 或類別名稱包含 volume
-  if (
-    target.closest('[aria-label="Volume"]') ||
-    target.closest('[aria-label="音量"]') ||
-    target.closest('.volume-slider')
-  ) {
-    return // 交給 Twitch 原生邏輯去改音量，我們不攔截
-  }
-
   // 找到頁面上的影片元件
   const video = document.querySelector('video')
 
   // 如果畫面上沒有影片，就什麼都不做
   if (!video) return
+
+  // 判斷是否為 Live 狀態：
+  // duration 是無限大
+  const isLiveStatus = video.duration === Infinity
+
+  if (isLiveStatus) {
+    // 【直播狀態】：直接 return，不執行 stopPropagation
+    // 這樣瀏覽器會觸發 Twitch 原生的左右鍵邏輯（10s 且包含狀態切換）
+    return
+  }
 
   // 檢查是否按下了左箭頭或右箭頭
   if (event.key === 'ArrowRight') {
@@ -46,7 +45,15 @@ document.addEventListener('keydown', (event) => {
     event.preventDefault()
 
     // 執行自定義的 5 秒跳轉
-    video.currentTime = Math.min(video.duration, video.currentTime + SEEK_TIME)
+    const targetTime = video.currentTime + SEEK_TIME
+
+    if (targetTime < video.duration) {
+      video.currentTime = targetTime
+    } else {
+      // 當播放進度快進到最新實況進度時 模擬按下跳到live
+      const liveBtn = document.querySelector('.tw-channel-status-indicator')?.closest('button')
+      liveBtn.click()
+    }
   } else if (event.key === 'ArrowLeft') {
     // 阻止原本行為
     event.stopImmediatePropagation()
