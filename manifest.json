@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Twitch VOD Helper",
+  "version": "1.0",
+  "description": "自定義 Twitch VOD 的快進(退)秒數。",
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.twitch.tv/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
