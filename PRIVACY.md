@@ -1,0 +1,2 @@
+Privacy Policy
+This extension does not collect, store, or transmit any personal data. All settings (such as seek time) are stored locally on your device via chrome.storage.sync. We do not have access to your browsing history or Twitch account information.
