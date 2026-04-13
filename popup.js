@@ -1,6 +1,7 @@
 /* global chrome */
 
-document.getElementById('saveBtn').addEventListener('click', () => {
+const saveBtn = document.getElementById('saveBtn')
+saveBtn.addEventListener('click', () => {
   let value = parseInt(document.getElementById('seekAmount').value)
 
   // 基礎防呆邏輯
@@ -11,6 +12,10 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   }
 
   chrome.storage.sync.set({ seekTime: value }, () => {
-
+    const originalText = saveBtn.innerText
+    saveBtn.innerText = '✅ 已儲存'
+    setTimeout(() => {
+      saveBtn.innerText = originalText
+    }, 1500)
   })
 })
