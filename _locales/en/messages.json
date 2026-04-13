@@ -1,0 +1,10 @@
+{
+  "extensionName": { "message": "Twitch VOD Helper" },
+  "extensionDesc": { "message": "customize seek/skip intervals on Twitch VODs." },
+  "title": { "message": "Settings" },
+  "saveBtnText": { "message": "Save" },
+  "saveSuccess": { "message": "Saved!" },
+  "labelText": { "message": "Seek Interval (seconds)" },
+  "suggestionText": { "message": "(Recommended: 1 ~ 60s)" },
+  "kofiText": { "message": "Buy me a coffee ☕ " }
+}

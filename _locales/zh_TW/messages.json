@@ -1,0 +1,10 @@
+{
+  "extensionName": { "message": "Twitch 播放器助手" },
+  "extensionDesc": { "message": "customize seek/skip intervals on Twitch VODs. 自定義 Twitch VOD 的快進(退)秒數。" },
+  "title": { "message": "快進退設定" },
+  "saveBtnText": { "message": "儲存" },
+  "saveSuccess": { "message": "已儲存！" },
+  "labelText": { "message": "快進/退秒數" },
+  "suggestionText": { "message": "(建議設定：1 ~ 60 秒)" },
+  "kofiText": { "message": "請我喝杯咖啡 ☕ " }
+}

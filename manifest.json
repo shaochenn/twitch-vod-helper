@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Twitch VOD Helper",
+  "name": "__MSG_extensionName__",
   "version": "1.0",
-  "description": "customize seek/skip intervals on Twitch VODs. 自定義 Twitch VOD 的快進(退)秒數。",
+  "description": "__MSG_extensionDesc__",
+  "default_locale": "en",
   "permissions": [
     "storage"
   ],
