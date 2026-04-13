@@ -1,6 +1,17 @@
-// content.js
+/* global chrome */
+
 // 定義我們想要的跳轉秒數
-const SEEK_TIME = 5
+let SEEK_TIME = 5
+
+// 初始化讀取一次
+chrome.storage.sync.get(['seekTime'], (result) => {
+  if (result.seekTime) SEEK_TIME = result.seekTime
+})
+
+// 如果使用者在開著分頁時改設定，可以動態監聽
+chrome.storage.onChanged.addListener((changes) => {
+  if (changes.seekTime) SEEK_TIME = changes.seekTime.newValue
+})
 
 // 監聽鍵盤按下事件
 document.addEventListener('keydown', (event) => {
@@ -52,7 +63,7 @@ document.addEventListener('keydown', (event) => {
     } else {
       // 當播放進度快進到最新實況進度時 模擬按下跳到live
       const liveBtn = document.querySelector('.tw-channel-status-indicator')?.closest('button')
-      liveBtn.click()
+      liveBtn?.click()
     }
   } else if (event.key === 'ArrowLeft') {
     // 阻止原本行為
