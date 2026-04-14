@@ -25,10 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     chrome.storage.sync.set({ seekTime: value }, () => {
-      const originalText = saveBtn.innerText
       saveBtn.innerText = chrome.i18n.getMessage('saveSuccess')
       setTimeout(() => {
-        saveBtn.innerText = originalText
+        saveBtn.innerText = chrome.i18n.getMessage('saveBtnText')
       }, 1500)
     })
   })
